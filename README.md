@@ -1,6 +1,8 @@
 #### s2i de puppeteer para utilizar en el PaaS.
 
-podemos buildear el container con el dockerfile de este repo:
+VERIFICAR QUE .s2i/bin/assemble comience con #!/bin/bash en lugar de #!/bin/sh
+
+Podemos buildear el container con el dockerfile de este repo:
 
 ```bash
 docker build -t puppeteer .
@@ -10,20 +12,17 @@ docker build -t puppeteer .
 s2i build [file:///path-a-tu-app](file:///path-a-tu aplicacion) puppeteer:latest puppeteers2i
 ```
 
-
-
 ```bash
 docker run -i puppeteers2i:latest
 ```
 
 
-
-o para usarla desde ocp:
+O para usarla desde ocp:
 
  
 
 ```bash
-oc new-app iv89/ocppuppet~https://repogit.com --name puppeteer oc expose svc/puppeteer-route
+oc new-app dienun/ocppuppet~https://repogit.com --name puppeteer oc expose svc/puppeteer
 ```
 
 ```bash
